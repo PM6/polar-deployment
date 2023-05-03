@@ -3,6 +3,7 @@ version: "3.8"
 services:
   catalog-service:
     depends_on:
+      - polar-keycloak
       - polar-postgres
     image: "catalog-service"
     container_name: "catalog-service"
@@ -19,6 +20,7 @@ services:
 
   order-service:
     depends_on:
+      - polar-keycloak
       - polar-postgres
       - polar-rabbitmq
     image: "order-service"
@@ -53,6 +55,7 @@ services:
 
   edge-service:
     depends_on:
+      - polar-keycloak
       - polar-redis
     image: "edge-service"
     container_name: "edge-service"
